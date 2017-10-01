@@ -21,7 +21,11 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31",
+    "nodemon": "^1.12.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },
