@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from "../../../server/data/data.service";
 
 @Component({
-  selector: 'app-hotel-list',
-  templateUrl: './hotel-list.component.html',
-  styleUrls: ['./hotel-list.component.css']
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.css']
 })
-export class HotelListComponent implements OnInit {
-  // Define a users property to hold our user data
+export class EventsComponent implements OnInit {
   hotels: Array<any>;
-
   constructor(private  _dataService:DataService) {
     // Access the Data Service's getUsers() method we defined
     this._dataService.gethotels()
@@ -17,10 +15,6 @@ export class HotelListComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-  getHotelDetails(){
-
-
   }
 
 }

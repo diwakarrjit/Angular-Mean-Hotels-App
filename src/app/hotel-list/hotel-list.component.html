@@ -4,7 +4,7 @@
   <div class="jumbotron">
     
     <ul>
-      <li *ngFor="let hotel of hotels">{{ hotel.name }}</li>
+      <li (click)="getHotelDetails()" *ngFor="let hotel of hotels">{{ hotel.name }}</li>
     </ul>
   </div>
 

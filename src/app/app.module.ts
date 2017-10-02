@@ -6,9 +6,14 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {HotelListComponent} from './hotel-list/hotel-list.component';
 import {HotelDisplayComponent} from './hotel-display/hotel-display.component';
-import {RouterModule} from "@angular/router";
-import {DataService} from "../../api/data.service";
-// routerexport const ROUTES: ROUTES = [];
+import { RouterModule, Routes } from '@angular/router';import {DataService} from "../../api/data.service";
+import { EventsComponent } from './events/events.component';
+const routes: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'AppComponent'},
+  {path: 'Events', component: EventsComponent},
+  {path: 'HotelDetail', component: HotelDisplayComponent},
+
+];
 
 @NgModule({
   declarations: [
@@ -16,12 +21,13 @@ import {DataService} from "../../api/data.service";
     HeaderComponent,
     FooterComponent,
     HotelListComponent,
-    HotelDisplayComponent
+    HotelDisplayComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule
+    RouterModule.forRoot(routes)
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
