@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import 'server/data/hotels.model.js';
 
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
