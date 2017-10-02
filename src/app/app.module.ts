@@ -7,7 +7,7 @@ import {FooterComponent} from './footer/footer.component';
 import {HotelListComponent} from './hotel-list/hotel-list.component';
 import {HotelDisplayComponent} from './hotel-display/hotel-display.component';
 import {RouterModule} from "@angular/router";
-import {DataService} from "../../server/data/data.service";
+import {DataService} from "../../api/data.service";
 // routerexport const ROUTES: ROUTES = [];
 
 @NgModule({

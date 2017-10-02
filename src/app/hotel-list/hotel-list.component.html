@@ -1,3 +1,14 @@
-<p>
-  hotel-list works!
-</p>
+<app-header></app-header>
+<div class="container">
+  
+  <div class="jumbotron">
+    
+    <ul>
+      <li *ngFor="let hotel of hotels">{{ hotel.name }}</li>
+    </ul>
+  </div>
+
+
+</div>
+
+<app-footer></app-footer>
