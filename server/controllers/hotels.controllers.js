@@ -247,7 +247,7 @@ module.exports.hotelsDeleteOne = function(req, res) {
         console.log("Hotel deleted, id:", hotelId);
         res
           .status(204)
-          .json();        
+          .json();
       }
     });
 };

@@ -1,4 +1,3 @@
-import {require} from "../../src/test";
 var ctrlHotels = require('../controllers/hotels.controllers.js');
 var ctrlReviews = require('../controllers/reviews.controllers.js');
 const express = require('express');

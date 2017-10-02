@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+// Hotel = require('server/data/hotels.model.js');
 
 var reviewSchema = new mongoose.Schema({
   name : {
@@ -57,3 +58,4 @@ var hotelSchema = new mongoose.Schema({
 });
 
 mongoose.model('Hotel', hotelSchema);
+// module.exports = mongoose.model('Hotel', hotelSchema)
