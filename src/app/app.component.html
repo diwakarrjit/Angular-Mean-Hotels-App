@@ -1,5 +1,14 @@
-<h1>Our MongoDB is Working!</h1>
+<app-header></app-header>
+<div class="container">
+  
+  <div class="jumbotron">
+  
+    <ul>
+      <li *ngFor="let hotel of hotels">{{ hotel.name }}</li>
+    </ul>
+  </div>
 
-<ul>
-  <li *ngFor="let hotel of hotels">{{ hotel.name }}</li>
-</ul>
+
+</div>
+
+<app-footer></app-footer>

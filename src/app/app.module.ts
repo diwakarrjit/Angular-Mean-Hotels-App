@@ -1,13 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {HttpModule} from "@angular/http";
 import {DataService} from "./data.service";
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HotelListComponent } from './hotel-list/hotel-list.component';
-import { HotelDisplayComponent } from './hotel-display/hotel-display.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {HotelListComponent} from './hotel-list/hotel-list.component';
+import {HotelDisplayComponent} from './hotel-display/hotel-display.component';
+import {RouterModule} from "@angular/router";
+// routerexport const ROUTES: ROUTES = [];
 
 @NgModule({
   declarations: [
@@ -19,9 +20,11 @@ import { HotelDisplayComponent } from './hotel-display/hotel-display.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
