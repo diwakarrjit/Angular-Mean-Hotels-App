@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var dburl = 'mongodb://localhost:27017/meanhotel';
+var dburl = 'mongodb://admin:admin@ds157624.mlab.com:57624/angular-mean-hotels-app';
 
 var _connection = null;
 

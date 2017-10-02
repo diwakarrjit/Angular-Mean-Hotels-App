@@ -8,7 +8,13 @@ var routes = require('./api/routes');
 
 // Define the port to run on
 app.set('port', 3000);
-
+//cors support
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, x-auth');
+  next();
+});
 // Add middleware to console log every request
 app.use(function(req, res, next) {
   console.log(req.method, req.url);

@@ -4,7 +4,8 @@ import {DataService} from "../../../server/data/data.service";
 @Component({
   selector: 'app-hotel-list',
   templateUrl: './hotel-list.component.html',
-  styleUrls: ['./hotel-list.component.css']
+  styleUrls: ['./hotel-list.component.css'],
+  providers: [DataService]
 })
 export class HotelListComponent implements OnInit {
   // Define a users property to hold our user data
@@ -18,9 +19,7 @@ export class HotelListComponent implements OnInit {
 
   ngOnInit() {
   }
-  getHotelDetails(){
-
-
+  getHotelDetails(hotel){
   }
 
 }

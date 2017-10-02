@@ -4,7 +4,8 @@ import {DataService} from "../../../server/data/data.service";
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.css']
+  styleUrls: ['./events.component.css'],
+  providers: [DataService]
 })
 export class EventsComponent implements OnInit {
   hotels: Array<any>;

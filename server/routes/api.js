@@ -7,7 +7,8 @@ const ObjectID = require('mongodb').ObjectID;
 
 // Connect
 const connection = (closure) => {
-  return MongoClient.connect('mongodb://localhost:27018/meanhotel', (err, db) => {
+  //  console.log("SSSSSS"); 
+  return MongoClient.connect('mongodb://admin:admin@ds157624.mlab.com:57624/angular-mean-hotels-app', (err, db) => {
     if (err) return console.log(err);
     
     closure(db);

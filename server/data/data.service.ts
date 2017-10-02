@@ -10,8 +10,7 @@ export class DataService {
   constructor(private _http: Http) { }
 
   gethotels() {
-    return this._http.get('/api/hotels')
-      .map(result => this.result = result.json().data);
+    return this._http.get('http://localhost:3000/api/hotels').map(res => res.json());
   }
 
 }
