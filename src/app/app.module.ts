@@ -12,10 +12,11 @@ import {
   ;
 import {DataService} from "./shared/data.service";
 import {EventsComponent} from './events/events.component';
-import { HotelRatingsComponent } from './hotel-display/hotel-ratings/hotel-ratings.component';
+import {HotelRatingsComponent} from './hotel-display/hotel-ratings/hotel-ratings.component';
+import {FormControl, ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/HotelListings', pathMatch: 'full' },
+  {path: 'Home', component: AppComponent},
   {path: 'HotelDisplay/:id', component: HotelDisplayComponent},
   {path: 'Events', component: EventsComponent},
   {path: 'HotelListings', component: HotelListComponent}
@@ -29,11 +30,14 @@ const routes: Routes = [
     HotelListComponent,
     HotelDisplayComponent,
     EventsComponent,
-    HotelRatingsComponent
+    HotelRatingsComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    ReactiveFormsModule,
+
     RouterModule.forRoot(routes)
   ],
   providers: [DataService],

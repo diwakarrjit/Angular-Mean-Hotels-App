@@ -3,3 +3,40 @@
 <p>Hotel details goes here</p>
 <p>Hotel reviews goes here</p>
 <app-hotel-ratings></app-hotel-ratings>
+
+
+<h1>Hotel Display Component</h1>
+<h1>{{ hotelId }} </h1>
+<h1>{{ hotel.name }} </h1>
+
+<p><small>{{hotel.location.address }}</small></p>
+
+<p>{{hotel.description }}</p>
+<!--<p>This hotel offers the following services:</p>-->
+<!--<ul>-->
+<!--<li *ngFor="let service of services">{{service.service }}</li>-->
+<!--</ul>-->
+<!--<h3>Reviews</h3>-->
+<!--<ul>-->
+<!--<li *ngFor="let review of reviews"> <strong>{{ review.name }} says:</strong> {{ review }}</li>-->
+<!--</ul>-->
+
+<!--<form name="vm.reviewForm" ng-submit="vm.addReview()">-->
+<!--Your name: <input type="text" name="name" required ng-minlength="2" [(ngModel)]="vm.name">-->
+<!--<div ng-show="vm.reviewForm.name.$dirty && vm.reviewForm.name.$invalid && vm.isSubmitted">-->
+<!--<p>Name should be more than 2 characters long</p>-->
+<!--</div>-->
+<!---->
+<!--Your rating: <input type="number" name="rating" required ng-pattern="/^[1-5]$/" [(ngModel)]="rating">-->
+<!--<div ng-show="vm.reviewForm.rating.$dirty && vm.reviewForm.rating.$invalid && vm.isSubmitted">-->
+<!--<p>Rating must be between 1-5.</p>-->
+<!---->
+<!--</div>-->
+<!---->
+<!--Your review: <textarea name="review" required [(ngModel)]="review.review"></textarea>-->
+<!--<div ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">-->
+<!--<p>Please add a review</p>-->
+<!--</div>-->
+<!---->
+<!--<button type="submit" class="btn">Add review</button>-->
+<!--</form>-->

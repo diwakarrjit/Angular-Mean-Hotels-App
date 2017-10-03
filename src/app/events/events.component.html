@@ -1,3 +1,171 @@
-<p>
-  events component works!
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  </div>
+  
+  <div class="panel-body">
+    <form class=""
+          novalidate
+          (ngSubmit)="save()"
+          [formGroup]="eventForm">
+      <fieldset>
+        <div class="form-group"
+             [ngClass]="{'has-error': (eventForm.get('Company').touched ||
+                                              eventForm.get('Company').dirty) &&
+                                              !eventForm.get('Company').valid }">
+          <label class="col-md-8 control-label"
+                 for="Company">Company Name</label>
+          
+          <div class="col-md-8">
+            <input class="form-control"
+                   id="Company"
+                   name="Company"
+                   type="text"
+                   placeholder="Company (required)"
+                   formControlName="Company"/>
+          
+          </div>
+          <label class="col-md-2 control-label"
+                 for="description">description</label>
+          <div class="col-md-8">
+  
+            <textarea  rows="5" cols="60"></textarea>
+            <input class="form-control"
+                   id="description"
+                   name="description"
+                     type="textarea"
+                   placeholder="description (required)"
+                   formControlName="description"/>
+          </div>
+        </div>
+        
+        <div formGroupName="emailGroup"
+             [ngClass]="{'has-error': eventForm.get('emailGroup').errors }">
+          
+          <div class="form-group"
+               [ngClass]="{'has-error': emailMessage}">
+            <label class="col-md-2 control-label"
+                   for="emailId">Email</label>
+            
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="emailId"
+                     type="email"
+                     placeholder="Email (required)"
+                     formControlName="email"/>
+            
+            </div>
+          </div>
+          
+          <div class="form-group"
+               [ngClass]="{'has-error': (eventForm.get('emailGroup.confirmEmail').touched ||
+                                                  eventForm.get('emailGroup.confirmEmail').dirty) &&
+                                                  !eventForm.get('emailGroup.confirmEmail').valid }">
+            <label class="col-md-2 control-label"
+                   for="confirmEmailId">Confirm Email</label>
+            
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="confirmEmailId"
+                     type="email"
+                     placeholder="Confirm Email (required)"
+                     formControlName="confirmEmail"/>
+              <span class="help-block" *ngIf="(eventForm.get('emailGroup.confirmEmail').touched ||
+                                                            eventForm.get('emailGroup.confirmEmail').dirty) &&
+                                                            (eventForm.get('emailGroup.confirmEmail').errors ||
+                                                             eventForm.get('emailGroup').errors)">
+                                <span *ngIf="eventForm.get('emailGroup.confirmEmail').errors?.required">
+                                    Please confirm your email address.
+                                </span>
+                                <span *ngIf="eventForm.get('emailGroup').errors?.match">
+                                    The confirmation does not match the email address.
+                                </span>
+                            </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group"
+                 [ngClass]="{'has-error': !eventForm.get('phone').valid }">
+        <label class="col-md-2 control-label"
+               for="phoneId">Phone</label>
+  
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="phoneId"
+                 type="tel"
+                 placeholder="Phone"
+                 formControlName="phone"/>
+          <span class="help-block" *ngIf="eventForm.get('phone').errors">
+                        
+                        </span>
+        </div>
+  
+  
+  
+          <div class="form-group"
+               [ngClass]="{'has-error': !eventForm.get('eventDate').valid }">
+            <label class="col-md-2 control-label"
+                   for="eventDate">Event date</label>
+    
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="eventDate"
+                     type="date"
+                     placeholder="eventDate"
+                     formControlName="eventDate"/>
+              <span class="help-block" *ngIf="eventForm.get('eventDate').errors">
+                        
+                        </span>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="capacity"
+                     type="number"
+                     placeholder="capacity"
+                     formControlName="capacity"/>
+              <span class="help-block" *ngIf="eventForm.get('capacity').errors">
+                        
+                        </span>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="rooms"
+                     type="number"
+                     placeholder="rooms"
+                     formControlName="rooms"/>
+              <span class="help-block" *ngIf="eventForm.get('rooms').errors">
+                        
+                        </span>
+            </div>
+          </div>
+          
+          
+          
+          
+          
+          
+      </div>
+        
+        
+        <div class="form-group">
+          <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    [disabled]="!eventForm.valid">
+                                Save
+                            </button>
+                        </span>
+            <span>
+              
+                        </span>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<br>Dirty: {{ eventForm.dirty }}
+<br>Touched: {{ eventForm.touched }}
+<br>Valid: {{ eventForm.valid }}
+<br>Value: {{ eventForm.value | json }}
