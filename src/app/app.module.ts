@@ -14,15 +14,10 @@ import {DataService} from "../../api/data.service";
 import {EventsComponent} from './events/events.component';
 
 const routes: Routes = [
-  {path: 'home', component: AppComponent},
+  {path: '', redirectTo: '/HotelListings', pathMatch: 'full' },
+  {path: 'HotelDisplay/:id', component: HotelDisplayComponent},
   {path: 'Events', component: EventsComponent},
-  {path: 'HotelListings', component: HotelListComponent},
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-
+  {path: 'HotelListings', component: HotelListComponent}
 ];
 
 @NgModule({
