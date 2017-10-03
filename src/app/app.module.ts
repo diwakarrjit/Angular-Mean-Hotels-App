@@ -6,12 +6,22 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {HotelListComponent} from './hotel-list/hotel-list.component';
 import {HotelDisplayComponent} from './hotel-display/hotel-display.component';
-import { RouterModule, Routes } from '@angular/router';import {DataService} from "../../api/data.service";
-import { EventsComponent } from './events/events.component';
+import {
+  RouterModule, Routes
+} from '@angular/router'
+  ;
+import {DataService} from "../../api/data.service";
+import {EventsComponent} from './events/events.component';
+
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'AppComponent'},
+  {path: 'home', component: AppComponent},
   {path: 'Events', component: EventsComponent},
-  {path: 'HotelDetail', component: HotelDisplayComponent},
+  {path: 'HotelListings', component: HotelListComponent},
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
 
 ];
 
