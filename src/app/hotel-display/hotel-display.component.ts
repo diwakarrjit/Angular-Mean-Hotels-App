@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../../../server/data/data.service";
+import { DataService } from '../shared/data.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-hotel-display',

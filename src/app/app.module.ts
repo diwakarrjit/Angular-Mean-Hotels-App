@@ -10,8 +10,9 @@ import {
   RouterModule, Routes
 } from '@angular/router'
   ;
-import {DataService} from "../../api/data.service";
+import {DataService} from "./shared/data.service";
 import {EventsComponent} from './events/events.component';
+import { HotelRatingsComponent } from './hotel-display/hotel-ratings/hotel-ratings.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/HotelListings', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const routes: Routes = [
     FooterComponent,
     HotelListComponent,
     HotelDisplayComponent,
-    EventsComponent
+    EventsComponent,
+    HotelRatingsComponent
   ],
   imports: [
     BrowserModule,
