@@ -1,21 +1,24 @@
+<div class="jumbotron">
 <h1>Hotel Display Component</h1>
 <h1>{{ hotelId }} </h1>
-<p>Hotel details goes here</p>
-<p>Hotel reviews goes here</p>
+  <ul>
+    <li *ngFor="let service of services">{{ service.service }}</li>
+  </ul>
 <app-hotel-ratings></app-hotel-ratings>
 
 
 <h1>Hotel Display Component</h1>
 <h1>{{ hotelId }} </h1>
-<h1>{{ hotel.name }} </h1>
+<h1>{{ hotels.hotelId.name}} </h1>
 
-<p><small>{{hotel.location.address }}</small></p>
+<p><small>{{hotels }}</small></p>
 
-<p>{{hotel.description }}</p>
+<p>{{hotelId.description }}</p>
+</div>
 <!--<p>This hotel offers the following services:</p>-->
-<!--<ul>-->
-<!--<li *ngFor="let service of services">{{service.service }}</li>-->
-<!--</ul>-->
+<ul>
+<li *ngFor="let service of services">{{service.service }}</li>
+</ul>
 <!--<h3>Reviews</h3>-->
 <!--<ul>-->
 <!--<li *ngFor="let review of reviews"> <strong>{{ review.name }} says:</strong> {{ review }}</li>-->

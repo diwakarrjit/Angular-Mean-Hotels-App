@@ -8,7 +8,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   providers: [DataService]
 })
 export class HotelDisplayComponent implements OnInit {
-// Define a users property to hold our user data
+// Define a hotel property to hold our user data
   hotels: Array<any>;
   params: ParamMap;
   hotelId: any;
