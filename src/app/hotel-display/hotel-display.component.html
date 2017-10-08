@@ -1,16 +1,15 @@
 <div class="jumbotron">
-<h1>Hotel Display Component</h1>
-<h1>{{ hotelId }} </h1>
+<h1>{{ hotelInfo.name }} </h1>
   <ul>
-    <li *ngFor="let service of services">{{hotels.services}}</li>
+    <li *ngFor="let service of hotelInfo.services">{{service}}</li>
   </ul>
 <app-hotel-ratings></app-hotel-ratings>
 </div>
-<!--<p>This hotel offers the following services:</p>-->
-<!--<h3>Reviews</h3>-->
-<!--<ul>-->
-<!--<li *ngFor="let review of reviews"> <strong>{{ review.name }} says:</strong> {{ review }}</li>-->
-<!--</ul>-->
+<p>This hotel offers the following services:</p>
+<h3>Reviews</h3>
+<ul>
+<li *ngFor="let review of hotelInfo.reviews"> <strong>{{ review.name }} says:</strong> {{ review.review }}</li>
+</ul>
 
 <!--<form name="vm.reviewForm" ng-submit="vm.addReview()">-->
 <!--Your name: <input type="text" name="name" required ng-minlength="2" [(ngModel)]="vm.name">-->

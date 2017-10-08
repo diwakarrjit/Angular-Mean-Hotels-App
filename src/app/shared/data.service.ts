@@ -12,5 +12,8 @@ export class DataService {
   gethotels() {
     return this._http.get('http://localhost:3000/api/hotels').map(res => res.json());
   }
+  gethotelInfo(id:any) {
+    return this._http.get('http://localhost:3000/api/hotels/' + id).map(res => res.json());
+  }
 
 }
