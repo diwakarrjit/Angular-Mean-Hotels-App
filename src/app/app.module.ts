@@ -14,6 +14,8 @@ import {DataService} from "./shared/data.service";
 import {EventsComponent} from './events/events.component';
 import {HotelRatingsComponent} from './hotel-display/hotel-ratings/hotel-ratings.component';
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
+import { StarRatingDirective } from './shared/star-rating.directive';
+import {directiveDef} from "@angular/core/src/view";
 
 const routes: Routes = [
   {path: 'Home', component: AppComponent},
@@ -31,6 +33,7 @@ const routes: Routes = [
     HotelDisplayComponent,
     EventsComponent,
     HotelRatingsComponent,
+    StarRatingDirective,
 
   ],
   imports: [
@@ -39,6 +42,10 @@ const routes: Routes = [
     ReactiveFormsModule,
 
     RouterModule.forRoot(routes)
+  ],
+  exports:[
+    StarRatingDirective,
+
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
