@@ -1,3 +1,4 @@
+import { HotelService } from './shared/hotel.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -14,8 +15,8 @@ import {DataService} from "./shared/data.service";
 import {EventsComponent} from './events/events.component';
 import {HotelRatingsComponent} from './hotel-display/hotel-ratings/hotel-ratings.component';
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
-import { StarRatingDirective } from './shared/star-rating.directive';
 import {directiveDef} from "@angular/core/src/view";
+import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 
 const routes: Routes = [
   {path: 'Home', component: AppComponent},
@@ -33,7 +34,7 @@ const routes: Routes = [
     HotelDisplayComponent,
     EventsComponent,
     HotelRatingsComponent,
-    StarRatingDirective,
+    StarRatingComponent,
 
   ],
   imports: [
@@ -44,10 +45,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports:[
-    StarRatingDirective,
-
+    StarRatingComponent
   ],
-  providers: [DataService],
+  providers: [DataService, HotelService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,32 +1,32 @@
-<div class="card" class="w-50 p-3" style="background-color: #eee; width: 75%">
-  <h5 class="card-header">{{ hotelInfo.name }}</h5>
-  <div class="card-body">
-    <!--<h4 class="card-title">Special title treatment</h4>-->
-    <p class="card-text">{{ hotelInfo.description}}</p>
-    <div class="card" style="width: 20rem;">
-      <ul class="list-group list-group-flush">
-        <li  class="list-group-item" *ngFor="let service of hotelInfo.services">{{service}}</li>
-        
-      </ul>
-    </div>
-    
-    
-    
-  </div>
+<div class="jumbotron">
+<h1>{{ hotelInfo?.name }} </h1><app-star-rating></app-star-rating>
+<ul>
+    <li *ngFor="let service of hotelInfo?.services">{{service}}</li>
+  </ul>
+<app-hotel-ratings></app-hotel-ratings>
 </div>
+<p>This hotel offers the following services:</p>
+<h3>Reviews</h3>
+<ul>
+<li *ngFor="let review of hotelInfo?.reviews"> <strong>{{ review?.name }} says:</strong> {{ review?.review }}</li>
+</ul>
 
-
-
-
-<!--<h3>{{ hotelInfo.name }} </h3>-->
-  <!--<p>{{ hotelInfo.description}}</p>-->
-  <!--<ul>-->
-    <!--<li *ngFor="let service of hotelInfo.services">{{service}}</li>-->
-  <!--</ul>-->
-
-<!--<p>This hotel offers the following services:</p>-->
-<!--<h3>Reviews</h3>-->
-<!--<ul>-->
-<!--<li *ngFor="let review of hotelInfo.reviews"> <strong>{{ review.name }} says:</strong> {{ review.review }}</li>-->
-<!--</ul>-->
-
+<!--<form name="vm.reviewForm" ng-submit="vm.addReview()">-->
+<!--Your name: <input type="text" name="name" required ng-minlength="2" [(ngModel)]="vm.name">-->
+<!--<div ng-show="vm.reviewForm.name.$dirty && vm.reviewForm.name.$invalid && vm.isSubmitted">-->
+<!--<p>Name should be more than 2 characters long</p>-->
+<!--</div>-->
+<!---->
+<!--Your rating: <input type="number" name="rating" required ng-pattern="/^[1-5]$/" [(ngModel)]="rating">-->
+<!--<div ng-show="vm.reviewForm.rating.$dirty && vm.reviewForm.rating.$invalid && vm.isSubmitted">-->
+<!--<p>Rating must be between 1-5.</p>-->
+<!---->
+<!--</div>-->
+<!---->
+<!--Your review: <textarea name="review" required [(ngModel)]="review.review"></textarea>-->
+<!--<div ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">-->
+<!--<p>Please add a review</p>-->
+<!--</div>-->
+<!---->
+<!--<button type="submit" class="btn">Add review</button>-->
+<!--</form>-->
