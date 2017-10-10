@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var User = require('../data/users.model.js');
 var dburl = 'mongodb://admin:admin@ds157624.mlab.com:57624/angular-mean-hotels-app';
 var retry = null;
 mongoose.connect(dburl);
@@ -44,3 +45,4 @@ process.on('SIGTERM', function() {
 
 // BRING IN YOUR SCHEMAS & MODELS
 require('./hotels.model');
+mongoose.model('User');

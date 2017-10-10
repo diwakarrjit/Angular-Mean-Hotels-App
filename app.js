@@ -1,5 +1,6 @@
 require('./api/data/db.js');
 var express = require('express');
+var cors = require('cors')
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
@@ -8,24 +9,22 @@ var routes = require('./api/routes');
 
 // Define the port to run on
 app.set('port', 3000);
-//cors support
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, x-auth');
-  next();
-});
+
 // Add middleware to console log every request
+app.use(cors())
 app.use(function(req, res, next) {
   console.log(req.method, req.url);
-  next(); 
+  next();
 });
 
 // Set static directory before defining routes
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/fonts', express.static(__dirname + '/fonts'));
 
 // Enable parsing of posted forms
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Add some routing
 app.use('/api', routes);
