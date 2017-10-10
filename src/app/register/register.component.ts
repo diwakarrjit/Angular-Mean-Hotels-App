@@ -22,23 +22,17 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
-    this._dataService.gethotelInfo(this.route.snapshot.params['id'])
-      .subscribe(res => {
-        this.hotelInfo = res;
-        this.commonService.hotelInfo = this.hotelInfo;
-      });
+    // this._dataService.gethotelInfo(this.route.snapshot.params['id'])
+    //   .subscribe(res => {
+    //     this.hotelInfo = res;
+    //     this.commonService.hotelInfo = this.hotelInfo;
+    //   });
     this.registerForm = new  FormGroup({
       name: new  FormControl('', [Validators.required, Validators.minLength(8)]),
       userName: new  FormControl('', [Validators.required, Validators.minLength(8)]),
       password: new  FormControl('', [Validators.required, Validators.minLength(8)]),
       passwordAgain: new  FormControl('', [Validators.required, Validators.minLength(8)])
-
-
-
     })
-
-
-
   }
   get name() {
     return this.registerForm.get('name');
