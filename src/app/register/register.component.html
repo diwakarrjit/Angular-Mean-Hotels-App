@@ -12,7 +12,17 @@
       placeholder="name"
       formControlName="name">
   
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="alert alert-danger col-md-6">
+    
+      <div *ngIf="name.errors.required">
+        Event Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+        Event Name must be at least 8 characters long.
+      </div>
   
+    </div>
   </div>
   
   <div class="form-group">
