@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   hotelId: any;
   hotels: Array<any>;
 
-  constructor(private dataService:DataService,private route:ActivatedRoute,private commonService:HotelService, private http:Http) { }
+  constructor(private dataService:DataService,private route:ActivatedRoute,private commonService:HotelService,) { }
 
 
   ngOnInit() {
@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
       } else {
         this.http.post('/api/users/register', user).then(function(result) {
           console.log(result);
-          hotel.message = 'Successful registration, please login.';
+          let hotelmessage ='Successful registration, please login';
           hotel.error = '';
         }).catch(function(error) {
           console.log(error);
