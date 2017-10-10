@@ -15,14 +15,19 @@ import {DataService} from "./shared/data.service";
 import {EventsComponent} from './events/events.component';
 import {HotelRatingsComponent} from './hotel-display/hotel-ratings/hotel-ratings.component';
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
-import {directiveDef} from "@angular/core/src/view";
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  {path: 'Home', component: AppComponent},
+  {path: 'Home', component: HotelListComponent},
   {path: 'HotelDisplay/:id', component: HotelDisplayComponent},
   {path: 'Events', component: EventsComponent},
-  {path: 'HotelListings', component: HotelListComponent}
+  {path: 'HotelListings', component: HotelListComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'home'}
+
 ];
 
 @NgModule({
@@ -35,6 +40,8 @@ const routes: Routes = [
     EventsComponent,
     HotelRatingsComponent,
     StarRatingComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [

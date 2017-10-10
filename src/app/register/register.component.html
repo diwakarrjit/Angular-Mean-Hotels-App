@@ -1,0 +1,73 @@
+<form novalidate
+      (ngSubmit)="save()"
+      [formGroup]="registerForm" #formDir="ngForm"
+      class="form-group">
+  <div class="form-group">
+    <label for="name" class=" col-md-6 control-label">name</label>
+    <input
+      class="col-md-6 form-control"
+      type="text"
+      id="name"
+      name="name"
+      placeholder="name"
+      formControlName="name">
+  
+  
+  </div>
+  
+  <div class="form-group">
+    <label for="username" class=" col-md-6 control-label">username</label>
+    <input
+      class="col-md-6 form-control"
+      type="text"
+      id="username"
+      name="username"
+      placeholder="username"
+      formControlName="userName">
+  
+  
+  </div>
+  
+  <div class="form-group">
+    <label for="password" class=" col-md-6 control-label">password</label>
+    <input
+      class="col-md-6 form-control"
+      type="password"
+      id="password"
+      name="password"
+      placeholder="password"
+      formControlName="password">
+  
+  
+  </div>
+  <div class="form-group">
+    <label for="password-again" class=" col-md-6 control-label">password again</label>
+    <input
+      class="col-md-6 form-control"
+      type="password"
+      id="password-again"
+      name="password-again"
+      placeholder="password again"
+      formControlName="passwordAgain">
+  
+  
+  </div>
+  
+  
+  <div class="form-group">
+    <div class="col-md-4 col-md-offset-2">
+                            <span>
+                                <button class="btn btn-primary"
+                                        type="submit"
+                                        [disabled]="!registerForm.valid">
+                                    Submit
+                                </button>
+                            </span>
+      <span>
+                  
+                            </span>
+    </div>
+  </div>
+
+</form>
+
