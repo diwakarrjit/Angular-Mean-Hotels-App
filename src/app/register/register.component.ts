@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from "@angular/http";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DataService} from "../shared/data.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
@@ -17,16 +18,12 @@ export class RegisterComponent implements OnInit {
   hotelId: any;
   hotels: Array<any>;
 
-  constructor(private _dataService:DataService,private route:ActivatedRoute,private commonService:HotelService) { }
+  constructor(private dataService:DataService,private route:ActivatedRoute,private commonService:HotelService, private http:Http) { }
 
 
   ngOnInit() {
 
-    // this._dataService.gethotelInfo(this.route.snapshot.params['id'])
-    //   .subscribe(res => {
-    //     this.hotelInfo = res;
-    //     this.commonService.hotelInfo = this.hotelInfo;
-    //   });
+
     this.registerForm = new  FormGroup({
       name: new  FormControl('', [Validators.required, Validators.minLength(8)]),
       userName: new  FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -54,8 +51,29 @@ export class RegisterComponent implements OnInit {
 
 
 
-  save(): void {
-    console.log('Saved: ' + JSON.stringify(this.registerForm.value));
+  register =  function () {
+    let hotel = this
+
+    var user = {
+      username: hotel.username,
+      password: hotel.password
+    };
+    if (!hotel.username || !hotel.password){
+      hotel.error = 'Please add a username and a password.';
+
+    } else {
+      if (hotel.password !== hotel.passwordAgain) {
+        hotel.error = 'Please make sure the passwords match.';
+      } else {
+        this.http.post('/api/users/register', user).then(function(result) {
+          console.log(result);
+          hotel.message = 'Successful registration, please login.';
+          hotel.error = '';
+        }).catch(function(error) {
+          console.log(error);
+        });
+      }
+    }
   }
 
 

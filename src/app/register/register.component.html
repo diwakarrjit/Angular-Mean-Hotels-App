@@ -1,5 +1,15 @@
+<h3>register</h3>
+<div ng-if="hotel.message" class="alert alert-success" role="alert">
+  <p>{{ hotel.message}}</p>
+</div>
+<div ng-if="hotel.error" class="alert alert-danger" role="alert">
+  {{ hotel.error }}
+</div>
+
+
+
 <form novalidate
-      (ngSubmit)="save()"
+      (ngSubmit)="register()"
       [formGroup]="registerForm" #formDir="ngForm"
       class="form-group">
   <div class="form-group">
@@ -9,17 +19,17 @@
       type="text"
       id="name"
       name="name"
-      placeholder="name"
+      placeholder="Full Name"
       formControlName="name">
   
-    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+  <div *ngIf="name.invalid && (name.dirty || name.touched)"
          class="alert alert-danger col-md-6">
     
       <div *ngIf="name.errors.required">
         Event Name is required.
       </div>
       <div *ngIf="name.errors.minlength">
-        Event Name must be at least 8 characters long.
+        Full Name must be at least 8 characters long.
       </div>
   
     </div>
@@ -35,7 +45,17 @@
       placeholder="username"
       formControlName="userName">
   
+    <div *ngIf="userName.invalid && (name.dirty || userName.touched)"
+         class="alert alert-danger col-md-6">
+    
+      <div *ngIf="userName.errors.required">
+        User Name is required.
+      </div>
+      <div *ngIf="userName.errors.minlength">
+        User Name must be at least 8 characters long.
+      </div>
   
+    </div>
   </div>
   
   <div class="form-group">
@@ -48,7 +68,17 @@
       placeholder="password"
       formControlName="password">
   
+    <div *ngIf="password.invalid && (name.dirty || password.touched)"
+         class="alert alert-danger col-md-6">
+    
+      <div *ngIf="password.errors.required">
+        password is required.
+      </div>
+      <div *ngIf="password.errors.minlength">
+        password must be at least 8 characters long.
+      </div>
   
+    </div>
   </div>
   <div class="form-group">
     <label for="password-again" class=" col-md-6 control-label">password again</label>
@@ -60,7 +90,14 @@
       placeholder="password again"
       formControlName="passwordAgain">
   
-  
+    <div *ngIf="passwordAgain.invalid && (name.dirty || passwordAgain.touched)"
+         class="alert alert-danger col-md-6">
+    
+      <div *ngIf="passwordAgain.errors.required">
+        passwordAgain is required.
+      
+      </div>
+    </div>
   </div>
   
   

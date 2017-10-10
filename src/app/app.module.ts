@@ -12,6 +12,7 @@ import {
 } from '@angular/router'
   ;
 import {DataService} from "./shared/data.service";
+import {HttpClientModule} from "@angular/common/http";
 import {EventsComponent} from './events/events.component';
 import {HotelRatingsComponent} from './hotel-display/hotel-ratings/hotel-ratings.component';
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
@@ -46,6 +47,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     HttpModule,
     ReactiveFormsModule,
 
