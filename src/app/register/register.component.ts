@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from "@angular/http";
+import {HttpClient} from "@angular/common/http";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { DataService } from "../shared/data.service";
 import { ActivatedRoute, ParamMap } from "@angular/router";
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   errorMsg: string;
   sucessMsg: string;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private commonService: HotelService, ) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute, private commonService: HotelService,private  http: HttpClient) { }
 
 
   ngOnInit() {
@@ -55,13 +55,13 @@ export class RegisterComponent implements OnInit {
 
   register = function () {
     let hotel = this
+    // const body = {name: '"username" : "hotel.username", "password" : "hotel.password"'};
 
     var user = {
       username: hotel.userName.value,
       password: hotel.password.value
     };
 
-    let body : string = JSON.stringify({ "username" : "hotel.username", "password" : "hotel.password"});
     if (!hotel.userName.value || !hotel.password.value) {
       this.errorMsg = 'Please add a username and a password.';
 
@@ -69,13 +69,18 @@ export class RegisterComponent implements OnInit {
       if (hotel.password.value !== hotel.passwordAgain.value) {
         this.errorMsg = 'Please make sure the passwords match.';
       } else {
-        this.dataService.registerUser(body).subscribe(x=> console.log(x));
-        // this.http.post('/api/users/register', user).then(function(result) {
-        //   console.log(result);
-        //   let hotelmessage ='Successful registration, please login';
-        //   hotel.error = '';
-        // }).catch(function(error) {
-        //   console.log(error);
+        const req = this.http.post('http://jsonplaceholder.typicode.com/posts', {
+          name: '"username" : "hotel.username", "password" : "hotel.password"'
+        })
+          .subscribe(
+            res => {
+              console.log(res);
+            },
+            err => {
+              console.log("Error occured");
+            }
+          );
+
         // });
       }
     }
