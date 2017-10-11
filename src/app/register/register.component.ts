@@ -58,10 +58,12 @@ export class RegisterComponent implements OnInit {
 
     var user = {
       username: hotel.userName.value,
-      password: hotel.password.value
+      password: hotel.password.value,
+      name: hotel.name.value
     };
-
-    let body : string = JSON.stringify({ "username" : "hotel.username", "password" : "hotel.password"});
+    console.log(user);
+    
+    let body : string = JSON.stringify(user);
     if (!hotel.userName.value || !hotel.password.value) {
       this.errorMsg = 'Please add a username and a password.';
 
@@ -69,7 +71,10 @@ export class RegisterComponent implements OnInit {
       if (hotel.password.value !== hotel.passwordAgain.value) {
         this.errorMsg = 'Please make sure the passwords match.';
       } else {
-        this.dataService.registerUser(body).subscribe(x=> console.log(x));
+        this.dataService.registerUser(body).subscribe(x=> {
+          this.errorMsg = "";
+          this.sucessMsg = "Successful registration, please login";
+        });
         // this.http.post('/api/users/register', user).then(function(result) {
         //   console.log(result);
         //   let hotelmessage ='Successful registration, please login';
