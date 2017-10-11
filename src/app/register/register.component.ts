@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { DataService } from "../shared/data.service";
-import { ActivatedRoute, ParamMap } from "@angular/router";
-import { HotelService } from "../shared/hotel.service";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {DataService} from "../shared/data.service";
+import {ActivatedRoute} from "@angular/router";
+import {HotelService} from "../shared/hotel.service";
 
 @Component({
   selector: 'app-register',
@@ -13,14 +12,12 @@ import { HotelService } from "../shared/hotel.service";
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup
-  hotelInfo: any;
-  params: ParamMap
   hotelId: any;
-  hotels: Array<any>;
   errorMsg: string;
-  sucessMsg: string;
+  successMsg: string;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private commonService: HotelService,private  http: HttpClient) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute, private commonService: HotelService,) {
+  }
 
 
   ngOnInit() {
@@ -33,6 +30,7 @@ export class RegisterComponent implements OnInit {
       passwordAgain: new FormControl('', [Validators.required, Validators.minLength(8)])
     })
   }
+
   get name() {
     return this.registerForm.get('name');
 
@@ -42,26 +40,29 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('userName');
 
   }
+
   get password() {
     return this.registerForm.get('password');
 
   }
+
   get passwordAgain() {
     return this.registerForm.get('passwordAgain');
 
   }
 
 
-
   register = function () {
     let hotel = this
-    // const body = {name: '"username" : "hotel.username", "password" : "hotel.password"'};
 
     var user = {
       username: hotel.userName.value,
-      password: hotel.password.value
+      password: hotel.password.value,
+      name: hotel.name.value
     };
+    console.log(user);
 
+    let body: string = JSON.stringify(user);
     if (!hotel.userName.value || !hotel.password.value) {
       this.errorMsg = 'Please add a username and a password.';
 
@@ -69,23 +70,14 @@ export class RegisterComponent implements OnInit {
       if (hotel.password.value !== hotel.passwordAgain.value) {
         this.errorMsg = 'Please make sure the passwords match.';
       } else {
-        const req = this.http.post('http://jsonplaceholder.typicode.com/posts', {
-          name: '"username" : "hotel.username", "password" : "hotel.password"'
-        })
-          .subscribe(
-            res => {
-              console.log(res);
-            },
-            err => {
-              console.log("Error occured");
-            }
-          );
+        this.dataService.registerUser(body).subscribe(x => {
+          this.errorMsg = "";
+          this.successMsg = "Successful registration, please login";
+        });
 
-        // });
       }
     }
   }
 
 
 }
-

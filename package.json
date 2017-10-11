@@ -25,6 +25,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "core-js": "^2.5.1",
+    "cors": "^2.8.4",
     "express": "^4.16.1",
     "font-awesome": "^4.7.0",
     "fontawesome": "^4.7.2",

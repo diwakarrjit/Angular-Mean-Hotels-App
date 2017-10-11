@@ -19,7 +19,7 @@ export class DataService {
   }
 
   registerUser(user){
-    return this._http.post('http://localhost:3000/api/users/register',user, this.options).subscribe(res => res.json());
+    return this._http.post('http://localhost:3000/api/users/register',user, this.options).map(res => res.json());
   }
 
 }
